@@ -52,7 +52,7 @@ O projeto consome a **API pública do GitHub** e apresenta os resultados em um c
 
 Este projeto está hospedado no Vercel.
 
-🔗 Breve aqui.
+🔗 [github-user-search WebApp](https://github-user-search-seven-nu.vercel.app/).
 
 ---
 
