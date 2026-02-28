@@ -1,0 +1,12 @@
+.welcome {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    place-items: center;
+    display: grid;
+    padding: 2rem 0;
+}
+
+.welcome img {
+    width: 70%;
+    border-radius: 5px;
+}

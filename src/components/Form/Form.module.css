@@ -1,0 +1,14 @@
+.form {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    padding: 2rem;
+    border-right: 1px solid black;
+}
+
+.buttonSubmit {
+    cursor: pointer;
+    border: 1px solid black;
+    padding: .7rem 0;
+    width: 150px;
+    font-size: 1rem;
+}
