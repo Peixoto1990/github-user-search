@@ -5,53 +5,25 @@ import UserCard from './components/UserCard';
 import ErrorCard from './components/ErrorCard';
 import WelcomeCard from './components/WelcomeCard';
 import Spinner from './components/Spinner';
+import { useGithubUser } from './cutom-hooks/useGithubUser/useGithubUser';
 
 function App() {
-  const [inputData, setInputData] = useState({textField: "", isRequest: false});
-  const [requestData, setRequestData] = useState({dataResult: null, error: false, isLoading: false});
-  let [initialLoading, setInitialLoading] = useState(true);
+  const {data, setIsRequest, setInputField, setIsInitialLoading} = useGithubUser();
 
-  async function requestApi(userName) {
-    setRequestData(prev => ({...prev, isLoading: true}));
-    const endPoint = `https://api.github.com/users/${userName}`;
-    try {
-      const request = await fetch(endPoint);
-      if (request.status === 404) {
-        setRequestData(prev => ({...prev, dataResult: null, error: true}));
-        throw new Error("Usuário não encontrado.");
-      } else {
-        const response = await request.json();
-        setRequestData(prev => ({...prev, dataResult: response, error: false}));
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setRequestData(prev => ({...prev, isLoading: false}));
-    }
-  }
-
-  useEffect(
-    () => {
-      if (inputData.isRequest) {
-        requestApi(inputData.textField);
-        setInputData(prev => ({...prev, isRequest: false, textField: ""}));
-      }
-    }, [inputData.isRequest]
-  );
 
   /*useEffect(() => { para ver estado atualizado no hook
-    if (requestData.dataResult) {
-      console.log("Estado atualizado:", requestData.dataResult);
+    if (data.dataResult) {
+      console.log("Estado atualizado:", data.dataResult);
     }
-  }, [requestData]);*/
+  }, [data.dataResult]);*/
 
   function submitForm(ev) {
     ev.preventDefault();
-    if (initialLoading) {
-      setInitialLoading(false);
+    if (data.isInitialLoading) {
+      setIsInitialLoading(false);
     }
-    if (inputData.textField.match(/[A-Za-z0-9._-]{3,}/)) {
-      setInputData(prev => ({...prev, isRequest: true}));
+    if (data.inputTextField.match(/[A-Za-z0-9._-]{3,}/)) {
+      setIsRequest(true);
       document.getElementById('userName').focus();
     } else {
       alert("Esse caractere não é válido");
@@ -61,14 +33,14 @@ function App() {
 
   return (
     <div className={styles.app}>
-      {requestData.isLoading && <Spinner />}
+      {data.isLoading && <Spinner />}
       <h1 className={styles.titulo}>Campo de Busca de Usuários do GitHub</h1>
       <Form
-        inputData={inputData.textField}
-        setInputData={setInputData}
+        inputData={data.inputTextField}
+        setInputData={setInputField}
         onSubmit={submitForm} 
       />
-      {requestData.dataResult && <UserCard userData={requestData.dataResult}/> || requestData.error && <ErrorCard /> || initialLoading && <WelcomeCard />}
+      {data.dataResult && <UserCard userData={data.dataResult}/> || data.error && <ErrorCard /> || data.isInitialLoading && <WelcomeCard />}
     </div>
   )
 }

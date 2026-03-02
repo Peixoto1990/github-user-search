@@ -2,7 +2,7 @@ import styles from './Input.module.css';
 
 export default function Input({type="text", required=false, id=`${Math.floor(Math.random() * 10)}${type}`, label="inputField", value="", setInputData, placeholder=""}) {
     function changeData(ev) {
-        setInputData(prev => ({...prev, textField: ev.target.value}))
+        setInputData(ev.target.value);
     }
 
     return (
