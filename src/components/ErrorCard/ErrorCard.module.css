@@ -1,6 +1,6 @@
 .error {
     grid-column: 2/3;
-    grid-row: 2/3;
+    grid-row: 2/4;
     place-items: center;
     display: grid;
     padding: 2rem 0;

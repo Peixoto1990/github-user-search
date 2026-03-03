@@ -1,5 +1,5 @@
 .userCard {
-    grid-row: 2/3;
+    grid-row: 2/4;
     grid-column: 2/3;
     padding: 2rem;
     place-items: center;
@@ -59,4 +59,25 @@
     border-radius: inherit;
     font-weight: bold;
     color: #fff;
+}
+
+.favButton {
+    font-size: 1.2rem;
+    filter: contrast(0.1);
+    display: block;
+    margin: 1rem auto;
+    width: max-content;
+    cursor: pointer;
+    transition: .5s all ease;
+}
+
+.favButtonOff {
+    filter: none;
+    animation: pulse .5s linear;
+}
+
+@keyframes pulse {
+    to {
+        transform: scale(1.2);
+    }
 }

@@ -1,0 +1,14 @@
+.favoriteList {
+    grid-row: 3/4;
+    grid-column: 1/2;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 0 2rem 4rem 2rem;
+    gap: 1rem 0;
+}
+
+.favoriteList h2 {
+    flex: 0 1 100%;
+    text-align: center;
+}
