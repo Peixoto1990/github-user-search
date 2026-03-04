@@ -1,6 +1,6 @@
 import styles from './Input.module.css';
 
-export default function Input({type="text", required=false, id=`${Math.floor(Math.random() * 10)}${type}`, label="inputField", value="", setInputData, placeholder=""}) {
+export default function Input({type="text", required=false, id=`${Math.floor(Math.random() * 10)}${type}`, label="inputField", value="", setInputData, placeholder="", reference}) {
     function changeData(ev) {
         setInputData(ev.target.value);
     }
@@ -8,7 +8,8 @@ export default function Input({type="text", required=false, id=`${Math.floor(Mat
     return (
         <div>
             <label htmlFor={id}>{label}</label>
-            <input 
+            <input
+            ref={reference} 
             className={styles[type]}
             value={value}
             type={type}

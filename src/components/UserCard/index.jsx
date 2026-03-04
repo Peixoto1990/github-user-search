@@ -1,6 +1,6 @@
 import styles from './UserCard.module.css';
 
-export default function UserCard({userData, favorite=[], changeFavorite=null}) {
+export default function UserCard({userData, favorite=[], changeFavorite=null, setFavorite=null}) {
     const isFavorite = favorite.some(element => element.id === userData.id);
 
     return (
@@ -23,7 +23,7 @@ export default function UserCard({userData, favorite=[], changeFavorite=null}) {
                     </div>
                     <div className={styles.buttonContainer}>
                         <button
-                            onClick={() => changeFavorite(userData)}
+                            onClick={() => changeFavorite(favorite, userData, setFavorite)}
                             className={isFavorite ? `${styles.favButton} ${styles.favButtonOff}` : styles.favButton}
                             >
                                 ⭐
