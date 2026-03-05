@@ -10,3 +10,14 @@
     width: 70%;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+    .error {
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+
+    .error img {
+        width: 90%;
+    }
+}

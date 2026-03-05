@@ -37,6 +37,16 @@
     text-align: center;
 }
 
+.aboutContainer h5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    line-clamp: 3;
+}
+
 .followContainer {
     grid-area: follow;
     display: flex;
@@ -51,7 +61,8 @@
 }
 
 .buttonContainer a {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     font-size: 1rem;
     background-color: rgb(13, 108, 187);
     padding: .7rem 0;
@@ -79,5 +90,17 @@
 @keyframes pulse {
     to {
         transform: scale(1.2);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .userCard {
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+
+    .cardContainer {
+        width: 100%;
     }
 }

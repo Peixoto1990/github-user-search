@@ -1,6 +1,6 @@
 import styles from './Input.module.css';
 
-export default function Input({type="text", required=false, id=`${Math.floor(Math.random() * 10)}${type}`, label="inputField", value="", setInputData, placeholder="", reference}) {
+export default function Input({type="text", required=false, id=`${Math.floor(Math.random() * 10)}${type}`, label="inputField", value="", setInputData, placeholder="", reference, autoComplete="on"}) {
     function changeData(ev) {
         setInputData(ev.target.value);
     }
@@ -17,6 +17,7 @@ export default function Input({type="text", required=false, id=`${Math.floor(Mat
             id={id}
             onChange={changeData}
             placeholder={placeholder}
+            autoComplete={autoComplete}
             />
         </div>
     )

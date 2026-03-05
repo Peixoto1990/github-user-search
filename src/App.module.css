@@ -16,3 +16,16 @@
   border-bottom: 1px solid black;
   padding: 2rem 0;
 }
+
+@media screen and (max-width: 768px) {
+  .app {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 100%;
+  }
+
+  .titulo {
+    grid-column: 1/2;
+    padding: 1rem 0;
+    font-size: 1rem;
+  }
+}
